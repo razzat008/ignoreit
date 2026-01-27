@@ -1,0 +1,2 @@
+# ignoreit
+based .gitignore generator 
