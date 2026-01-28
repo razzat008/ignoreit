@@ -1,26 +1,28 @@
 #!/usr/bin/env bash
 
-ignore=$1 # first argument to the script
-ignore=${ignore,,} # making things small
-file="./gitignores/$ignore.gitignore"
+ignore=$1 # first argument
+ignore=${ignore,,} # lowercasing
 
+# to check for dirs
+BASE_URL="https://raw.githubusercontent.com/razzat008/ignoreit/master/gitignores"
+url="$BASE_URL/$ignore.gitignore"
+
+# what you're doing?
 fetch() {
   echo "You're generating .gitignore for: $ignore"
-  get_ignores "$1" >> test.txt
+  curl -fsSL "$1" >> .gitignore
 }
 
-get_ignores() {
-  cat $1
-}
-
+# please pass something bbg
 if [[ $# -eq 0 ]]; then
   echo "Usage: $0 <language>"
   exit 1
 fi
 
-if [[ -f "$file" ]]; then
-  fetch "$file"
+# checking if file exists
+if curl -fsI "$url" > /dev/null; then  
+  fetch "$url"
 else
-  echo "Couldn't find the specified .gitignore."
+  echo "Couldn't find .gitignore for '$ignore'"
   exit 1
 fi
