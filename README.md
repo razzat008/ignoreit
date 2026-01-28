@@ -10,13 +10,13 @@ pass argument to the script for the project, it'll generate/create a .gitignore\
 have fun
 
 ```bash
-github.com/razzat008/ignoreit
+curl -fsSL https://raw.githubusercontent.com/razzat008/ignoreit/refs/heads/master/useit.sh | sh -s -- rust
 ```
 
 or make an alias
 
 ```bash
-alias ignoreit="github.com/razzat008/ignoreit"
+alias ignoreit="curl -fsSL https://raw.githubusercontent.com/razzat008/ignoreit/refs/heads/master/useit.sh | sh -s -- "
 ```
 
 ## contributing
