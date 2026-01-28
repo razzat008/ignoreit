@@ -20,5 +20,5 @@ alias ignoreit="curl -fsSL https://raw.githubusercontent.com/razzat008/ignoreit/
 ```
 
 ## contributing
-
+all gitignores are copied from [github/gitignore](https://github.com/github/gitignore)  
 open a PR to make changes to gitignores for available language/tool inside `./gitignores/...`
