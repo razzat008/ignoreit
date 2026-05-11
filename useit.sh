@@ -10,7 +10,12 @@ url="$BASE_URL/$ignore.gitignore"
 # what you're doing?
 fetch() {
   echo "You're generating .gitignore for: $ignore"
-  curl -fsSL "$1" >> .gitignore
+  curl -fsSL "$1" -o /tmp/ignoreit.gitignore
+  if [ -f .gitignore ]; then
+    grep -Fxv -f .gitignore /tmp/ignoreit.gitignore >> .gitignore || true
+  else
+    cat /tmp/ignoreit.gitignore >> .gitignore
+  fi
 }
 
 # please pass something bbg
